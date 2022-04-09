@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
+  const operateArr = ["android", "Blackberry", "iPhone", "Windows Phone"];
+  const manufacArr = [
+    { name: "Samsung", style: "square" },
+    { name: "HTC", style: "square" },
+    { name: "Micromax", style: "" },
+    { name: "Apple", style: "circle" },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Mobile operating System</h2>
+      <ul>
+        {operateArr.map((e) => {
+          return <Operate ope={e} />;
+        })}
+      </ul>
+      <h2>Mobile Manufactures</h2>
+      <ul>
+        {manufacArr.map((e) => {
+          return <Manufac menu={e.name} style={e.style} />;
+        })}
+      </ul>
     </div>
   );
 }
-
+function Operate(props) {
+  return <li>{props.ope}</li>;
+}
+function Manufac(props) {
+  return <li className={props.style}>{props.menu}</li>;
+}
 export default App;
